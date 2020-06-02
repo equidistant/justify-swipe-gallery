@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { useHistory } from 'react-router-dom'
 
 const useMouseTouchSwipe = function ({ activeImg, length, changeUrl }) {
-  const history = useHistory()
   const [w, setW] = useState(window.innerWidth)
   const locked = useRef(false)
   const i = useRef(activeImg)

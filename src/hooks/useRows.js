@@ -1,28 +1,34 @@
-import { useState, useEffect } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 
 const useRows = ({ images }) => {
   const [rows, setRows] = useState([])
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    const maxWidth = window.innerWidth - scrollbarWidth - 1
-    const minRatio = maxWidth / 250
-    if (rows.length === 0) {
-      setRows(buildRows({ images: images.slice(), maxWidth, minRatio }))
-    }
-  }, [images, rows.length])
-  const appendRows = ({ images }) => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
-    const maxWidth = window.innerWidth - scrollbarWidth - 1
-    const minRatio = maxWidth / 250
-    const newRows = buildRows({ images: images.slice(), maxWidth, minRatio })
+  const appendRows = useCallback(({ images }) => {
+    const newRows = getRows({ images })
     setRows([...rows, ...newRows])
-  }
-  return [rows, appendRows]
+  }, [rows])
+  const resetRows = useCallback(({ images }) => {
+    const newRows = getRows({ images })
+    setRows([...newRows])
+  }, [])
+  useEffect(() => {
+    if (rows.length === 0) {
+      appendRows({ images })
+    }
+  }, [images, rows.length, appendRows])
+  return [rows, appendRows, resetRows]
+}
+
+const getRows = ({ images }) => {
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+  const maxWidth = window.innerWidth - scrollbarWidth - 1
+  const minRatio = maxWidth / 250
+  return buildRows({ images: images, maxWidth, minRatio })
 }
 
 const buildRows = ({ images, maxWidth, minRatio }) => {
-  const firstImage = images.shift()
-  const rowsRatios = images.reduce((acc, image) => {
+  const firstImage = images[0]
+  const imagesCopy = images.slice(1)
+  const rowsRatios = imagesCopy.reduce((acc, image) => {
     let currentRow = acc[acc.length - 1]
     if (currentRow.ratio < minRatio) {
       currentRow.ratio += image.ratio

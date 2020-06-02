@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useRef } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 const SwipeImage = memo(({ image }) => {
   const imageRef = useRef(null)

@@ -1,10 +1,15 @@
-import React from 'react'
 import { useState, useEffect } from 'react'
+import debounce from 'lodash.debounce'
 
 const useSwipeImages = ({ images }) => {
   const [swipeImages, setSwipeImages] = useState([])
   useEffect(() => {
     setSwipeImages(buildSwipeImages(images))
+    const resizeListener = debounce(() => {
+      setSwipeImages(buildSwipeImages(images))
+    }, 100)
+    window.addEventListener('resize', resizeListener)
+    return () => window.removeEventListener('resize', resizeListener)
   }, [images])
   return [swipeImages]
 }

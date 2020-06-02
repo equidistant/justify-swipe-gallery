@@ -30,8 +30,8 @@ export const PreviousButtonContainer = styled.div`
   position: absolute;
   bottom: calc(50% - 25px);
   left: 2%;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
@@ -53,8 +53,8 @@ const NextButtonContainer = styled.div`
   position: absolute;
   bottom: calc(50% - 25px);
   right: 2%;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
@@ -74,10 +74,10 @@ const NextButtonContainer = styled.div`
 
 const CloseButtonContainer = styled.div`
   position: absolute;
-  top: 1%;
-  right: 1%;
-  width: 40px;
-  height: 40px;
+  top: 2%;
+  right: 2%;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
