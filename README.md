@@ -2,6 +2,7 @@
 
 Justified low res grid preview of photos with high res swipeable carousel view on click.
 Images are loaded lazily when shown visible on screen.
+Built with React.
 
 ### Live preview
 
