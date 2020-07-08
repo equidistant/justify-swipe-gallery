@@ -5,7 +5,7 @@ import Image from './Image'
 import { usePaginatedRows } from '../../../hooks'
 
 const JustifiedGallery = ({ images, open }) => {
-  const [rows, jgRef] = usePaginatedRows({ images})
+  const [rows, jgRef] = usePaginatedRows({ images })
   return (
     <JustifiedGalleryContainer ref={jgRef}>
         {renderRows({ rows, open })}

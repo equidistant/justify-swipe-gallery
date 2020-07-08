@@ -1,13 +1,13 @@
 ## Justify Swipe Gallery
 
-Justified low res grid preview of photos with high res swipeable carousel view on click.
-Images are loaded lazily when shown visible on screen.
-Gallery is responsive.
+Justified low res grid preview of photos with high res swipeable carousel view on click. <br>
+Images are loaded lazily when shown visible on screen. <br>
+Gallery is responsive. <br>
 Built with React.
 
 ### Live preview
 
-gallery.mislav.host
+www.gallery.mislav.host
 
 ### `npm start`
 

@@ -24,3 +24,4 @@ export const paginate = ({ images, nPerPage = 20 }) => {
   }
   return paginatedImages
 }
+
